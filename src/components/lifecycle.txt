@@ -1,0 +1,47 @@
+What is react life cycle & its methods?
+Lifecycle Methods ( Class Component )
+I. Mounting Phase -
+When an instance of a component is being created and inserted into the DOM.
+1. Constructor   [Only in mounting]   //initialize the state & bind the event
+- A special type of function that will get called whenever a new component is created.
+- Used to initialize states & Binding events.
+- Not perform, Http req.
+2. static getDerivedStateFromProps   [rarely used]
+- When the state of component depends on change in props.
+- set the state.
+- Not perform, Http req.
+3. render
+- Only Required Method.
+- Return JSX.
+- Children component Lifecycle methods also get execute.
+- Not perform, Http req.
+4. componentDidMount   [Only in mounting]
+- Invoked immediately after a component and its child components have been rendered to DOM.
+- Perform any AJAX call to load data.
+
+II. Updating Phase -
+When a component is being re-render as a result of changes to either its props or state.
+1. static getDerivedStateFromProps
+- Method is called every time a component is re-rendered.
+- set the state
+- Not perform, Http req.
+2. shouldComponentUpdate
+- Dictates if the component should re-render or not.
+- Performance Optimization
+- Not perform, Http req.
+3. render
+- Only Required Method
+- Return JSX
+- Not perform, Http req.
+4. getSnapshotBeforeUpdate()   [Rarely Used]
+- Called right before the changes from the virtual DOM are to be reflected in the DOM.
+- Capture some Information From DOM.
+5. componentDidUpdate()
+- called after the render is finished in the re-render cycles.
+
+III. Unmounting Phase   ( LAST WISH ) -
+When a component is being removed from the DOM.
+1. componentWillUnmount
+- Method is invoked immediately before a component is unmounted and destroyed.
+- Cancelling any network req., also invalidating timers.
+- Do Not Call The SetState Method.
